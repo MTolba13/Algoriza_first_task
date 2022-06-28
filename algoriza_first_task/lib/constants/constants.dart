@@ -1,9 +1,6 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
-import 'package:hexcolor/hexcolor.dart';
 
-HexColor defaultColor = HexColor('004899');
-HexColor secondaryColor = HexColor('1599be');
+var firstColor = const Color.fromRGBO(226, 190, 136, 1);
 
-var firstColor = const Color(0x00000d47);
-
-var secondColor = const Color.fromRGBO(21, 153, 190, 1);
+var secondColor = const Color.fromRGBO(233, 233, 233, 1);

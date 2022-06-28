@@ -1,16 +1,17 @@
-// The defaultButon
+// ignore_for_file: must_be_immutable, sort_child_properties_last, prefer_typing_uninitialized_variables
 
-// ignore_for_file: sort_child_properties_last
-
+// Flutter imports:
 import 'package:flutter/material.dart';
 
+// The Default Button
 class DefaultButton extends StatelessWidget {
   double width = double.infinity;
   Color color = Colors.teal;
   bool isUpperCase = true;
   double radius = 0.0;
   String text;
-  void Function()? onPressed;
+  Color textColor;
+  Function? onPressed;
 
   DefaultButton({
     Key? key,
@@ -19,6 +20,7 @@ class DefaultButton extends StatelessWidget {
     required this.isUpperCase,
     required this.radius,
     required this.text,
+    required this.textColor,
     required this.onPressed,
   }) : super(key: key);
 
@@ -26,12 +28,13 @@ class DefaultButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: width,
-      height: 50.0,
+      height: 52.0,
       child: MaterialButton(
         child: Text(
           isUpperCase ? text.toUpperCase() : text,
-          style: const TextStyle(
+          style: TextStyle(
             fontSize: 15,
+            color: textColor,
           ),
         ),
         onPressed: () {},
@@ -45,8 +48,7 @@ class DefaultButton extends StatelessWidget {
 }
 
 // The defaultFormField
-
-class DefaultFormField {
+class DefaultFormField extends StatelessWidget {
   TextEditingController? controller;
   TextInputType? type;
   String? label;
@@ -59,18 +61,20 @@ class DefaultFormField {
   var onChange;
 
   DefaultFormField({
+    Key? key,
     this.controller,
     this.type,
-    required this.label,
-    required this.prefix,
-    required this.suffix,
-    required this.validate,
+    this.label,
+    this.prefix,
+    this.suffix,
+    this.validate,
     required this.isPassword,
     this.suffixPressed,
     this.onTap,
     this.onChange,
-  });
+  }) : super(key: key);
 
+  @override
   Widget build(BuildContext context) {
     return TextFormField(
       style: const TextStyle(
@@ -100,12 +104,12 @@ class DefaultFormField {
           color: Colors.black,
         ),
         focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(25),
+            borderRadius: BorderRadius.circular(5),
             borderSide: const BorderSide(color: Colors.black)),
         border: OutlineInputBorder(
           borderSide: const BorderSide(color: Colors.black),
           borderRadius: BorderRadius.circular(
-            25,
+            5,
           ),
         ),
       ),
